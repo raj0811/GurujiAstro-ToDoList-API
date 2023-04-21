@@ -21,3 +21,20 @@
     <li> Run command <b>nodemon index.js</b> </li>
     
 </ul>
+
+<h2>Routes and their responses</h2>
+<h3> Base Url: <b>https://localhost:8080/</b> </h3>
+
+<ul>
+    <li> <b>/register</b> : You an Reister a user by POST request and parsing name,email,password</li>
+    <div>
+        <img src="https://i.ibb.co/mtqW8bL/reg.png" height="600" width="500">
+    </div>
+    
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
