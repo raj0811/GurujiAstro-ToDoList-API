@@ -13,6 +13,8 @@ router.delete('/:id/delete', taskController.delete)
 // 
 router.get('/getTask', taskController.getTask)
 router.get('/pendingTask', taskController.pendingTask)
+router.get('/completedTask', taskController.completedTask)
+
 
 router.post('/:data/search', taskController.searched)
 
