@@ -37,7 +37,6 @@ module.exports.createtask = async function (req, res) {
 
 module.exports.update = async function (req, res) {
     const token = req.headers.authorization;
-    // console.log(token);
     if (!token) {
         return res.status(401).send("Access denied: No Token Provided");
     }
@@ -52,7 +51,7 @@ module.exports.update = async function (req, res) {
         }
 
 
-        // Create task here
+        // Update task here
         const id = req.params.id
 
         const update = {
@@ -70,7 +69,7 @@ module.exports.update = async function (req, res) {
 
 
     } catch (err) {
-        // console.log(err);
+        console.log(err);
         return res.status(400).send('Invalid token')
     }
 }
@@ -92,7 +91,7 @@ module.exports.delete = async function (req, res) {
         if (!decode) {
             return res.status(404).send('User not found');
         }
-        // Delete task here
+        // Delete task code
 
         const taskId = req.params.id;
         const task = await Task.findById(taskId);
@@ -111,7 +110,7 @@ module.exports.delete = async function (req, res) {
 
 
     } catch (err) {
-        // console.log(err);
+        console.log(err);
         return res.status(400).send('Invalid token')
     }
 }
@@ -138,7 +137,7 @@ module.exports.getTask = async (req, res) => {
         }
 
 
-        // Show task here
+        // Show Users task here
 
         console.log(user);
         const tasks = await Task.find({ user: decode._id })
@@ -149,7 +148,7 @@ module.exports.getTask = async (req, res) => {
 
 
     } catch (err) {
-        // console.log(err);
+        console.log(err);
         return res.status(400).send('Invalid token')
     }
 }
@@ -166,7 +165,6 @@ module.exports.pendingTask = async (req, res) => {
 
     try {
         const decode = jwt.verify(token, 'slrNZ8H8CsJUcdqtz4Cd44OOzrM84FtZ');
-        // console.log(indexOf(decode), "decode");
         const userId = decode.indexOf;
         console.log(userId, "userid");
         const user = await User.findOne(userId);
@@ -176,7 +174,7 @@ module.exports.pendingTask = async (req, res) => {
         }
 
 
-        // Show task here
+        // Show Pending task here
 
         const pendingTasks = await Task.find({ user: decode._id, taskStatus: 'pending' })
             .sort('-createdAt')
@@ -186,7 +184,7 @@ module.exports.pendingTask = async (req, res) => {
 
 
     } catch (err) {
-        // console.log(err);
+        console.log(err);
         return res.status(400).send('Invalid token')
     }
 
@@ -204,7 +202,6 @@ module.exports.completedTask = async (req, res) => {
 
     try {
         const decode = jwt.verify(token, 'slrNZ8H8CsJUcdqtz4Cd44OOzrM84FtZ');
-        // console.log(indexOf(decode), "decode");
         const userId = decode.indexOf;
         console.log(userId, "userid");
         const user = await User.findOne(userId);
@@ -212,9 +209,7 @@ module.exports.completedTask = async (req, res) => {
         if (!user) {
             return res.status(404).send('User not found');
         }
-
-
-        // Show task here
+        // Show Completed task here
 
         const pendingTasks = await Task.find({ user: decode._id, taskStatus: 'completed' })
             .sort('-createdAt')
@@ -251,10 +246,7 @@ module.exports.searched = async (req, res) => {
 
         const tasks = await Task.find({ user: decode._id, taskName: { $regex: search, $options: "i" } });
         console.log(tasks.length);
-        // if (tasks.length = 0) {
-
-        //     return res.send('No Task Found With This Name')
-        // }
+        
         return res.send(tasks);
     } catch (err) {
         console.log(err);
