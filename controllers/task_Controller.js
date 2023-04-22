@@ -153,12 +153,9 @@ module.exports.getTask = async (req, res) => {
     }
 }
 
-
-module.exports.pendingTask = async (req, res) => {
-
-
+module.exports.filter = async (req, res) => {
     const token = req.headers.authorization;
-    console.log(token);
+
     if (!token) {
         return res.status(401).send("Access denied: No Token Provided");
     }
@@ -166,7 +163,7 @@ module.exports.pendingTask = async (req, res) => {
     try {
         const decode = jwt.verify(token, 'slrNZ8H8CsJUcdqtz4Cd44OOzrM84FtZ');
         const userId = decode.indexOf;
-        console.log(userId, "userid");
+
         const user = await User.findOne(userId);
 
         if (!user) {
@@ -176,60 +173,25 @@ module.exports.pendingTask = async (req, res) => {
 
         // Show Pending task here
 
-        const pendingTasks = await Task.find({ user: decode._id, taskStatus: 'pending' })
-            .sort('-createdAt')
-            .populate('user');
-
-        return res.send(pendingTasks);
+        var status = req.query.status
+        console.log(status.toLowerCase());
+        var result = await Task.find({ user: decode._id, taskStatus: status })
+        return res.send(result);
 
 
     } catch (err) {
         console.log(err);
         return res.status(400).send('Invalid token')
     }
-
-
 }
 
-module.exports.completedTask = async (req, res) => {
 
 
-    const token = req.headers.authorization;
-    console.log(token);
-    if (!token) {
-        return res.status(401).send("Access denied: No Token Provided");
-    }
 
-    try {
-        const decode = jwt.verify(token, 'slrNZ8H8CsJUcdqtz4Cd44OOzrM84FtZ');
-        const userId = decode.indexOf;
-        console.log(userId, "userid");
-        const user = await User.findOne(userId);
-
-        if (!user) {
-            return res.status(404).send('User not found');
-        }
-        // Show Completed task here
-
-        const pendingTasks = await Task.find({ user: decode._id, taskStatus: 'completed' })
-            .sort('-createdAt')
-            .populate('user');
-
-        return res.send(pendingTasks);
-
-
-    } catch (err) {
-        // console.log(err);
-        return res.status(400).send('Invalid token')
-    }
-
-
-}
 
 
 module.exports.searched = async (req, res) => {
-    const search = req.params.data
-    console.log(search);
+
 
     const token = req.headers.authorization;
     console.log(token);
@@ -244,9 +206,11 @@ module.exports.searched = async (req, res) => {
             return res.status(404).send('User not found');
         }
 
+        const search = req.query.search
+        console.log(search);
         const tasks = await Task.find({ user: decode._id, taskName: { $regex: search, $options: "i" } });
         console.log(tasks.length);
-        
+
         return res.send(tasks);
     } catch (err) {
         console.log(err);

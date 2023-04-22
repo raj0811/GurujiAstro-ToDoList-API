@@ -10,13 +10,13 @@ router.post('/createtask', taskController.createtask);
 router.put('/:id/update', taskController.update)
 router.delete('/:id/delete', taskController.delete)
 
-// 
+
 router.get('/getTask', taskController.getTask)
-router.get('/pendingTask', taskController.pendingTask)
-router.get('/completedTask', taskController.completedTask)
+
+router.get('/filter', taskController.filter)
 
 
-router.post('/:data/search', taskController.searched)
+router.get('/search', taskController.searched)
 
 
 

@@ -52,11 +52,23 @@
         <img src="https://i.ibb.co/DfxmJBF/reg.png" height="400" width="400">
     </div>
     <li> <b>/tasks/:id/delete</b> : Delete Task by Passing id of task  </li> <br>
+    <div>
+        <img src="https://i.ibb.co/vL3Hkhq/reg.png" height="400" width="600">
+    </div>
 
 <li> <b>/tasks/getTask</b> : Show all task of that User </li> <br>
-    <li> <b>/tasks/pendingTask</b> :Additional feature : filterout all pending task  </li> <br>
-    <li> <b>/tasks/completedTask</b> :Additional feature : filterout all completed task  </li> <br>
-    <li> <b>/tasks/:data/search</b> : Delete Task by Passing task name in url  </li> <br>
 
+<div>
+        <img src="https://i.ibb.co/DQBtDKF/reg.png" height="400" width="600">
+    </div>
+    <li> <b>/tasks/filter?status=pending</b> or <b>/tasks/filter?status=completed</b> :Additional feature : filterout all pending and completed task  </li> <br>
+   <div>
+        <img src="https://i.ibb.co/6vbZj3p/reg.png" height="400" width="600">
+    </div>
+    <li> <b>/tasks/:data/search</b> : Search task By name   </li> <br>
+
+<div>
+        <img src="https://i.ibb.co/mrphXc5/reg.png" height="400" width="600">
+    </div>
 
 </ul>
