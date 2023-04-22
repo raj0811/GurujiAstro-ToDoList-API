@@ -30,41 +30,49 @@
 <h3> Base Url: <b>https://localhost:8080/</b> </h3>
 
 <ul>
+<h4>POST Method</h4>
     <li> <b>/register</b> : You an Reister a user by POST request and parsing name,email,password</li><br><br>
     <div>
         <img src="https://i.ibb.co/mtqW8bL/reg.png" height="300" width="600" />
     </div>
+    <h4>POST Method</h4>
     <li> <b>/login</b> : Normally login(without JWT) </li> <br>
 
 <div>
         <img src="https://i.ibb.co/V3w9xP5/reg.png" height="300" width="600">
     </div>
+    <h4>POST Method</h4>
     <li> <b>/loginjwt</b> : login with JWT </li> <br>
     <div>
         <img src="https://i.ibb.co/zNTxgdp/reg.png" height="300" width="600">
     </div>
+    <h4>POST Method</h4>
     <li> <b>/tasks/createtask</b> : create a task by entering jwt token in authorization key </li> <br>
     <div>
         <img src="https://i.ibb.co/pd0ymkY/reg.png" height="400" width="400">
     </div>
+    <h4>PUT Method</h4>
     <li> <b>/tasks/:id/update</b> : Update Task by Passing id of task  </li> <br>
     <div>
         <img src="https://i.ibb.co/DfxmJBF/reg.png" height="400" width="400">
     </div>
+    <h4>DELETE Method</h4>
     <li> <b>/tasks/:id/delete</b> : Delete Task by Passing id of task  </li> <br>
     <div>
         <img src="https://i.ibb.co/vL3Hkhq/reg.png" height="400" width="600">
     </div>
-
+<h4>GET Method</h4>
 <li> <b>/tasks/getTask</b> : Show all task of that User </li> <br>
 
 <div>
         <img src="https://i.ibb.co/DQBtDKF/reg.png" height="400" width="600">
     </div>
+    <h4>GET Method</h4>
     <li> <b>/tasks/filter?status=pending</b> or <b>/tasks/filter?status=completed</b> :Additional feature : filterout all pending and completed task  </li> <br>
    <div>
         <img src="https://i.ibb.co/6vbZj3p/reg.png" height="400" width="600">
     </div>
+    <h4>GET Method</h4>
     <li> <b>/tasks/:data/search</b> : Search task By name   </li> <br>
 
 <div>

@@ -6,16 +6,13 @@ const taskController = require('../controllers/task_Controller')
 
 
 // basic Create, Update and Delete Routes
+router.get('/getTask', taskController.getTask)
 router.post('/createtask', taskController.createtask);
 router.put('/:id/update', taskController.update)
 router.delete('/:id/delete', taskController.delete)
 
-
-router.get('/getTask', taskController.getTask)
-
+// Advance Features
 router.get('/filter', taskController.filter)
-
-
 router.get('/search', taskController.searched)
 
 
